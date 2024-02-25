@@ -11,7 +11,7 @@ try:
         user="postgres",
         password="JusT4lonE",
         host="localhost",
-        client_encoding="utf-8"
+        client_encoding="utf-8" 
     )
     print("Connexion réussie!")
 except psycopg2.Error as e:
@@ -19,7 +19,6 @@ except psycopg2.Error as e:
 #finally:
 #    if conn is not None:
 #        conn.close()
-
 
 # Création d'un curseur
 #try:
@@ -81,21 +80,21 @@ if conn is not None:
 
 
 # Fonction pour exporter les données vers un fichier CSV tout en gérant les duplications
-#def exporter_vers_csv(chemin_fichier, nouvelles_donnees):
-#    # Si le fichier CSV existe déjà, ajoutez les nouvelles données sans dupliquer les informations
-#    if os.path.exists(chemin_fichier):
-#        donnees_existantes = pd.read_csv(chemin_fichier)
-#        nouvelles_donnees = pd.concat([donnees_existantes, nouvelles_donnees]).drop_duplicates().reset_index(drop=True)
-#
-#    nouvelles_donnees.to_csv(chemin_fichier, index=False)
-#
-## Chemin des fichiers CSV
-#chemin_fichier_sup_10 = "C:\\Users\\Lenovo\\moyenne\\etudiants_moyenne_sup_10.csv"
-#chemin_fichier_inf_10 = "C:\\Users\\Lenovo\\moyenne\\etudiants_moyenne_inf_10.csv"
-#
-## Exportation des données vers les fichiers CSV en gérant les duplications
-#exporter_vers_csv(chemin_fichier_sup_10, pd.DataFrame(etudiants_moyenne_sup_10, columns=["id", "nom", "math", "physique", "science", "anglais", "algorithme", "jpe"]))
-#exporter_vers_csv(chemin_fichier_inf_10, pd.DataFrame(etudiants_moyenne_inf_10, columns=["id", "nom", "math", "physique", "science", "anglais", "algorithme", "jpe"]))
+def exporter_vers_csv(chemin_fichier, nouvelles_donnees):
+    # Si le fichier CSV existe déjà, ajoutez les nouvelles données sans dupliquer les informations
+    if os.path.exists(chemin_fichier):
+        donnees_existantes = pd.read_csv(chemin_fichier)
+        nouvelles_donnees = pd.concat([donnees_existantes, nouvelles_donnees]).drop_duplicates().reset_index(drop=True)
+
+    nouvelles_donnees.to_csv(chemin_fichier, index=False)
+
+# Chemin des fichiers CSV
+chemin_fichier_sup_10 = "C:\\Users\\Lenovo\\moyenne\\etudiants_moyenne_sup_10.csv"
+chemin_fichier_inf_10 = "C:\\Users\\Lenovo\\moyenne\\etudiants_moyenne_inf_10.csv"
+
+# Exportation des données vers les fichiers CSV en gérant les duplications
+exporter_vers_csv(chemin_fichier_sup_10, pd.DataFrame(etudiants_moyenne_sup_10, columns=["id", "nom", "math", "physique", "science", "anglais", "algorithme", "jpe"]))
+exporter_vers_csv(chemin_fichier_inf_10, pd.DataFrame(etudiants_moyenne_inf_10, columns=["id", "nom", "math", "physique", "science", "anglais", "algorithme", "jpe"]))
 
 
 
