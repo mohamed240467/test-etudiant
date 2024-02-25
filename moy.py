@@ -18,8 +18,7 @@ except psycopg2.Error as e:
     print(f"Erreur de connexion à la base de données: {e}")
 #finally:
 #    if conn is not None:
-#        conn.close()
-
+#        conn.close()s
 # Création d'un curseur
 #try:
 #    cursor = conn.cursor()
